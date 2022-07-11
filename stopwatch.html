@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop watch</title>
+    <link rel="stylesheet" type="text/css" href="stopwatch.css" />
+    <style>
+      .loader {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border-top: 5px solid dodgerblue;
+        border-left: 5px solid red;
+        border-right: 5px solid green;
+        border-bottom: 5px solid orange;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 20vh;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .content
+      {
+          display:none;
+      }
+    </style>
+  </head>
+  <body align="center">
+    <div class="loader"></div>
+    <div class="content">
+      <h1>
+        <span id="hour">00</span>:<span id="min">00</span>:<span id="sec"
+          >00</span
+        >:<span id="supsec">00</span>
+      </h1>
+      <input type="button" value="Start" onclick="startstopwatch()" />
+      <input type="button" value="Stop" onclick="stop()" />
+      <input type="reset" onclick="reset()" />
+      <input type="button" value="Set Time" onclick="setTime()" />
+    </div>
+    <script src="stopwatch.js"></script>
+    <script>
+        setTimeout(function(){
+            document.querySelector(".content").style.display="block";
+            document.querySelector(".loader").style.display="none";
+        },1000);
+    </script>
+  </body>
+</html>
